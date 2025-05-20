@@ -1,0 +1,46 @@
+{
+  "appTitle": "Blitzschnelle Bestellung",
+  "login": {
+    "title": "Blitzschnelle Bestellung",
+    "subtitle": "Bitte geben Sie Ihre E-Mail-Adresse ein, um fortzufahren",
+    "emailPlaceholder": "E-Mail-Adresse eingeben",
+    "continue": "Weiter",
+    "errorMessage": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  },
+  "nav": {
+    "logout": "ABMELDEN →"
+  },
+  "priceList": {
+    "title": "Preisliste",
+    "searchPlaceholder": "Produkt suchen",
+    "stockAvailability": "Verfügbarkeit",
+    "directlyAvailable": "Direkt verfügbar",
+    "category": "Kategorie",
+    "categories": {
+      "meatSeafood": "Fleisch & Meeresfrüchte",
+      "dairyEggs": "Milchprodukte & Eier",
+      "groceries": "Lebensmittel",
+      "confectionery": "Süßwaren",
+      "beverages": "Getränke",
+      "beerWines": "Bier & Weine",
+      "liquors": "Spirituosen",
+      "nonFood": "Non-Food"
+    }
+  },
+  "table": {
+    "item": "Artikel",
+    "price": "Preis",
+    "stock": "Bestand",
+    "origin": "Herkunft",
+    "category": "Kategorie",
+    "qty": "Menge",
+    "packaging": "Verpackung",
+    "pricePerPackaging": "Preis/Verpackung",
+    "pallet": "Palette",
+    "volumeWeight": "Volumen/Gewicht"
+  },
+  "orderSummary": {
+    "title": "Bestelldetails",
+    "subtotal": "Zwischensumme"
+  }
+} 

@@ -1,0 +1,46 @@
+{
+  "appTitle": "Pedidos Relámpago",
+  "login": {
+    "title": "Pedidos Relámpago",
+    "subtitle": "Por favor, introduzca su correo electrónico para continuar",
+    "emailPlaceholder": "Introducir correo electrónico",
+    "continue": "Continuar",
+    "errorMessage": "Por favor, introduzca un correo electrónico válido"
+  },
+  "nav": {
+    "logout": "CERRAR SESIÓN →"
+  },
+  "priceList": {
+    "title": "Lista de Precios",
+    "searchPlaceholder": "Buscar producto",
+    "stockAvailability": "Disponibilidad",
+    "directlyAvailable": "Disponible inmediatamente",
+    "category": "Categoría",
+    "categories": {
+      "meatSeafood": "Carne y Marisco",
+      "dairyEggs": "Lácteos y Huevos",
+      "groceries": "Comestibles",
+      "confectionery": "Confitería",
+      "beverages": "Bebidas",
+      "beerWines": "Cervezas y Vinos",
+      "liquors": "Licores",
+      "nonFood": "No Alimentario"
+    }
+  },
+  "table": {
+    "item": "Artículo",
+    "price": "Precio",
+    "stock": "Stock",
+    "origin": "Origen",
+    "category": "Categoría",
+    "qty": "Cantidad",
+    "packaging": "Envase",
+    "pricePerPackaging": "Precio/Envase",
+    "pallet": "Palet",
+    "volumeWeight": "Volumen/Peso"
+  },
+  "orderSummary": {
+    "title": "Detalles del Pedido",
+    "subtotal": "Subtotal"
+  }
+} 

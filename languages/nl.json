@@ -1,0 +1,46 @@
+{
+  "appTitle": "Bliksemsnelle Bestelling",
+  "login": {
+    "title": "Bliksemsnelle Bestelling",
+    "subtitle": "Voer uw e-mailadres in om door te gaan",
+    "emailPlaceholder": "Voer e-mailadres in",
+    "continue": "Doorgaan",
+    "errorMessage": "Voer een geldig e-mailadres in"
+  },
+  "nav": {
+    "logout": "UITLOGGEN →"
+  },
+  "priceList": {
+    "title": "Prijslijst",
+    "searchPlaceholder": "Zoek product",
+    "stockAvailability": "Voorraad",
+    "directlyAvailable": "Direct beschikbaar",
+    "category": "Categorie",
+    "categories": {
+      "meatSeafood": "Vlees & Vis",
+      "dairyEggs": "Zuivel & Eieren",
+      "groceries": "Boodschappen",
+      "confectionery": "Snoepgoed",
+      "beverages": "Dranken",
+      "beerWines": "Bier & Wijnen",
+      "liquors": "Sterke Dranken",
+      "nonFood": "Non-Food"
+    }
+  },
+  "table": {
+    "item": "Artikel",
+    "price": "Prijs",
+    "stock": "Voorraad",
+    "origin": "Herkomst",
+    "category": "Categorie",
+    "qty": "Aantal",
+    "packaging": "Verpakking",
+    "pricePerPackaging": "Prijs/Verpakking",
+    "pallet": "Pallet",
+    "volumeWeight": "Volume/Gewicht"
+  },
+  "orderSummary": {
+    "title": "Bestelgegevens",
+    "subtotal": "Subtotaal"
+  }
+} 

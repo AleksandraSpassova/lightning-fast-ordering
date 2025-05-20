@@ -1,0 +1,46 @@
+{
+  "appTitle": "Lightning Fast Ordering",
+  "login": {
+    "title": "Lightning Fast Ordering",
+    "subtitle": "Please enter your email to continue",
+    "emailPlaceholder": "Enter your email",
+    "continue": "Continue",
+    "errorMessage": "Please enter a valid email address"
+  },
+  "nav": {
+    "logout": "LOG OUT →"
+  },
+  "priceList": {
+    "title": "Price List",
+    "searchPlaceholder": "Search product",
+    "stockAvailability": "Stock Availability",
+    "directlyAvailable": "Directly Available",
+    "category": "Category",
+    "categories": {
+      "meatSeafood": "Meat & Seafood",
+      "dairyEggs": "Dairy & Eggs",
+      "groceries": "Groceries",
+      "confectionery": "Confectionery",
+      "beverages": "Beverages",
+      "beerWines": "Beer & Wines",
+      "liquors": "Liquors",
+      "nonFood": "Non-Food"
+    }
+  },
+  "table": {
+    "item": "Item",
+    "price": "Price",
+    "stock": "Stock",
+    "origin": "Origin",
+    "category": "Category",
+    "qty": "Qty",
+    "packaging": "Packaging",
+    "pricePerPackaging": "Price/Packaging",
+    "pallet": "Pallet",
+    "volumeWeight": "Volume/Weight"
+  },
+  "orderSummary": {
+    "title": "Order Details",
+    "subtotal": "Subtotal"
+  }
+} 
