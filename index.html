@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=1980" />
     <title>Lightning Fast Ordering</title>
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Check if user is logged in
+      window.onload = function() {
+        const userEmail = localStorage.getItem('userEmail');
+        if (!userEmail) {
+          window.location.href = 'login.html';
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="nav-title-bar">
@@ -34,7 +43,7 @@
         <div></div>
 
         <div>
-          <button class="logout-button">LOG OUT →</button>
+          <button class="logout-button" onclick="handleLogout()">LOG OUT →</button>
         </div>
       </div>
     </div>
@@ -128,6 +137,12 @@
       </div>
     </div>
     <script src="script.js"></script>
+    <script>
+      function handleLogout() {
+        localStorage.removeItem('userEmail');
+        window.location.href = 'login.html';
+      }
+    </script>
   </body>
 
   <script>
