@@ -250,7 +250,13 @@ function updateQty(sku, change) {
 
   quantities[sku] = newQty;
 
-  // Update quantity display
+  // Update quantity display in the price list
+  const priceListInput = document.getElementById(`qty-${sku}`);
+  if (priceListInput) {
+    priceListInput.value = newQty;
+  }
+
+  // Update quantity display in the summary (if any)
   const qtyElement = document.getElementById(sku);
   if (qtyElement) {
     qtyElement.textContent = quantities[sku];
@@ -276,7 +282,13 @@ function togglePalletOrder(sku, qtyPerPallet, isChecked) {
     document.getElementById("orderSummary").classList.remove("hidden");
   }
 
-  // Update the displayed quantity
+  // Update the displayed quantity in the price list
+  const priceListInput = document.getElementById(`qty-${sku}`);
+  if (priceListInput) {
+    priceListInput.value = quantities[sku];
+  }
+
+  // Update the displayed quantity in the summary (if any)
   const qtyElement = document.getElementById(sku);
   if (qtyElement) {
     qtyElement.textContent = quantities[sku];
@@ -291,6 +303,8 @@ function updateOrderSummary() {
 
   let subtotal = 0;
   let totalSavings = 0;
+  let totalVolume = 0;
+  let totalWeight = 0;
 
   for (const sku in quantities) {
     const qty = quantities[sku];
@@ -304,6 +318,12 @@ function updateOrderSummary() {
       let unitPrice = product.pricePerOrder;
       let oldTotal = unitPrice * qty;
       let finalTotal = oldTotal;
+
+      // Calculate total volume and weight for this item
+      const itemTotalVolume = (product.volume * qty).toFixed(2);
+      const itemTotalWeight = (product.weight * qty).toFixed(2);
+      totalVolume += Number(itemTotalVolume);
+      totalWeight += Number(itemTotalWeight);
 
       // Apply regular discount first if it exists
       if (regularDiscount > 0) {
@@ -323,18 +343,12 @@ function updateOrderSummary() {
 
       orderBody.innerHTML += `
         <tr>
-          <td class="left-align"<strong>${product.name}</strong><br />${
-        product.sku
-      }</td>
+          <td class="left-align"><strong>${product.name}</strong><br />${product.sku}</td>
           <td class="center-align">
             ${
               regularDiscount > 0
-                ? `<span class="discount-new">${
-                    product.currency
-                  } ${unitPrice.toFixed(2)}</span><br>
-                   <span class="discount-old">${
-                     product.currency
-                   } ${product.pricePerOrder.toFixed(2)}</span>`
+                ? `<span class="discount-new">${product.currency} ${unitPrice.toFixed(2)}</span><br>
+                   <span class="discount-old">${product.currency} ${product.pricePerOrder.toFixed(2)}</span>`
                 : `${product.currency} ${unitPrice.toFixed(2)}`
             }
           </td>
@@ -342,46 +356,57 @@ function updateOrderSummary() {
             <div class="qty-btn">
               <button onclick="updateQty('${sku}', -1)">-</button>
               <input 
-              type="number" 
-             id="qty-${product.sku}" 
-             min="0" 
-             step="1"
-             max="${stockData[product.sku] || ""}" 
-             value="${quantities[product.sku] || 0}" 
-             onchange="handleQtyInput('${product.sku}', this.value)" 
-             class="qty-input"
+                type="number" 
+                id="qty-${product.sku}" 
+                min="0" 
+                step="1"
+                max="${stockData[product.sku] || ""}" 
+                value="${quantities[product.sku] || 0}" 
+                onchange="handleQtyInput('${product.sku}', this.value)" 
+                class="qty-input"
               />
-
-
-            <button onclick="updateQty('${sku}', 1)">+</button>
+              <button onclick="updateQty('${sku}', 1)">+</button>
             </div>
           </td>
           <td class="center-align">
             ${
               savings > 0
                 ? `
-                  <span class="discount-new">${
-                    product.currency
-                  } ${finalTotal.toFixed(2)}</span><br>
-                  <span class="discount-old">${
-                    product.currency
-                  } ${oldTotal.toFixed(2)}</span><br>
-                  <span class="savings">Pallet Savings: ${
-                    product.currency
-                  } ${savings.toFixed(2)}</span>
+                  <span class="discount-new">${product.currency} ${finalTotal.toFixed(2)}</span><br>
+                  <span class="discount-old">${product.currency} ${oldTotal.toFixed(2)}</span><br>
+                  <span class="savings">Pallet Savings: ${product.currency} ${savings.toFixed(2)}</span>
                 `
                 : `${product.currency} ${finalTotal.toFixed(2)}`
             }
           </td>
-          <th class="center-align">Volume<br />Weight</th>
-          <td></td>
+          <td class="center-align">
+            ${itemTotalVolume} m³<br />${itemTotalWeight} kg
+          </td>
         </tr>
       `;
     }
   }
 
-  document.getElementById("subtotal").textContent = `€${subtotal.toFixed(2)}`;
-  document.getElementById("totalAmount").textContent = subtotal.toFixed(2);
+  // Add 120px spacer row before summary
+  orderBody.innerHTML += `
+    <tr><td colspan="5" style="height:120px;"></td></tr>
+    <tr class="summary-header-row">
+      <td colspan="3"><span class="summary-title">SUMMARY</span></td>
+      <td class="summary-header-cell">Total</td>
+      <td class="summary-header-cell">Volume Weight</td>
+    </tr>
+    <tr class="summary-row">
+      <td colspan="3"></td>
+      <td class="center-align total-price"><span class="summary-total">€${subtotal.toFixed(2)}</span></td>
+      <td class="center-align total-volume-weight"><span class="summary-total">${totalVolume.toFixed(2)} m³<br />${totalWeight.toFixed(2)} kg</span></td>
+    </tr>
+  `;
+
+  // Update the order button total
+  const orderButtonTotal = document.getElementById('orderButtonTotal');
+  if (orderButtonTotal) {
+    orderButtonTotal.textContent = subtotal.toFixed(2);
+  }
 }
 
 function toggleOrderSummary() {

@@ -1,46 +1,35 @@
 {
-  "appTitle": "Bliksemsnelle Bestelling",
-  "login": {
-    "title": "Bliksemsnelle Bestelling",
-    "subtitle": "Voer uw e-mailadres in om door te gaan",
-    "emailPlaceholder": "Voer e-mailadres in",
-    "continue": "Doorgaan",
-    "errorMessage": "Voer een geldig e-mailadres in"
-  },
-  "nav": {
-    "logout": "UITLOGGEN →"
-  },
-  "priceList": {
-    "title": "Prijslijst",
-    "searchPlaceholder": "Zoek product",
-    "stockAvailability": "Voorraad",
-    "directlyAvailable": "Direct beschikbaar",
-    "category": "Categorie",
-    "categories": {
-      "meatSeafood": "Vlees & Vis",
-      "dairyEggs": "Zuivel & Eieren",
-      "groceries": "Boodschappen",
-      "confectionery": "Snoepgoed",
-      "beverages": "Dranken",
-      "beerWines": "Bier & Wijnen",
-      "liquors": "Sterke Dranken",
-      "nonFood": "Non-Food"
-    }
-  },
-  "table": {
-    "item": "Artikel",
-    "price": "Prijs",
-    "stock": "Voorraad",
-    "origin": "Herkomst",
-    "category": "Categorie",
-    "qty": "Aantal",
-    "packaging": "Verpakking",
-    "pricePerPackaging": "Prijs/Verpakking",
-    "pallet": "Pallet",
-    "volumeWeight": "Volume/Gewicht"
-  },
-  "orderSummary": {
-    "title": "Bestelgegevens",
-    "subtotal": "Subtotaal"
-  }
+  "app_title": "Supersnel Bestellen",
+  "login_prompt": "Voer uw e-mailadres in om door te gaan",
+  "login_button": "Doorgaan",
+  "login_email_placeholder": "Voer uw e-mailadres in",
+  "login_error": "Voer een geldig e-mailadres in",
+  "logout": "UITLOGGEN →",
+  "price_list": "Prijslijst",
+  "search_product": "Zoek product",
+  "stock_availability": "Voorraad",
+  "directly_available": "Direct beschikbaar",
+  "category": "Categorie",
+  "categories": [
+    "Vlees & Zeevruchten",
+    "Zuivel & Eieren",
+    "Boodschappen",
+    "Snoepgoed",
+    "Dranken",
+    "Bier & Wijnen",
+    "Likeuren",
+    "Non-Food"
+  ],
+  "item": "Artikel",
+  "price": "Prijs",
+  "stock": "Voorraad",
+  "origin": "Herkomst",
+  "qty": "Aantal",
+  "packaging": "Verpakking",
+  "price_packaging": "Prijs/Verpakking",
+  "pallet": "Pallet",
+  "volume_weight": "Volume/Gewicht",
+  "order_details": "Bestelgegevens",
+  "subtotal": "Subtotaal",
+  "total": "Totaal"
 } 

@@ -1,86 +1,70 @@
-class LanguageManager {
-    constructor() {
-        this.currentLanguage = localStorage.getItem('language') || 'EN';
-        this.translations = {};
-        this.loadTranslations();
-        this.setupLanguageSelector();
-    }
+// Language Manager for Lightning Fast Ordering
+(function() {
+  const DEFAULT_LANG = 'en';
+  const LANG_KEY = 'appLang';
 
-    async loadTranslations() {
-        try {
-            console.log('Loading translations for:', this.currentLanguage);
-            const response = await fetch(`languages/${this.currentLanguage.toLowerCase()}.json`);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            this.translations = await response.json();
-            console.log('Translations loaded:', this.translations);
-            this.updatePageContent();
-        } catch (error) {
-            console.error('Error loading translations:', error);
+  function setLang(lang) {
+    localStorage.setItem(LANG_KEY, lang);
+  }
+
+  function getLang() {
+    return localStorage.getItem(LANG_KEY) || DEFAULT_LANG;
+  }
+
+  function loadLangFile(lang, callback) {
+    fetch(`languages/${lang}.json`)
+      .then(res => res.json())
+      .then(data => callback(data))
+      .catch(() => {
+        if (lang !== DEFAULT_LANG) {
+          loadLangFile(DEFAULT_LANG, callback);
         }
-    }
+      });
+  }
 
-    async changeLanguage(lang) {
-        console.log('Changing language to:', lang);
-        this.currentLanguage = lang;
-        localStorage.setItem('language', lang);
-        await this.loadTranslations();
-    }
-
-    getTranslation(key) {
-        const keys = key.split('.');
-        let value = this.translations;
-        
-        for (const k of keys) {
-            if (value[k] === undefined) {
-                console.warn(`Translation missing for key: ${key}`);
-                return key;
-            }
-            value = value[k];
+  function translatePage(langData) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key in langData) {
+        el.textContent = langData[key];
+      }
+    });
+    // For placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (key in langData) {
+        el.setAttribute('placeholder', langData[key]);
+      }
+    });
+    // For categories (array)
+    if (langData.categories) {
+      const catEls = document.querySelectorAll('[data-i18n-category]');
+      catEls.forEach((el, idx) => {
+        if (langData.categories[idx]) {
+          el.textContent = langData.categories[idx];
         }
-        
-        return value;
+      });
     }
+  }
 
-    updatePageContent() {
-        console.log('Updating page content');
-        // Update all elements with data-i18n attribute
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            const translation = this.getTranslation(key);
-            console.log(`Updating element with key ${key} to:`, translation);
-            element.textContent = translation;
-        });
+  function updateLang(lang) {
+    setLang(lang);
+    loadLangFile(lang, translatePage);
+  }
 
-        // Update all elements with data-i18n-placeholder attribute
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-            const key = element.getAttribute('data-i18n-placeholder');
-            const translation = this.getTranslation(key);
-            console.log(`Updating placeholder with key ${key} to:`, translation);
-            element.placeholder = translation;
-        });
+  // Setup language selector
+  document.addEventListener('DOMContentLoaded', function() {
+    const lang = getLang();
+    loadLangFile(lang, translatePage);
+    // Language selector
+    document.querySelectorAll('.language-dropdown > div').forEach(option => {
+      option.addEventListener('click', function() {
+        updateLang(option.textContent.trim().toLowerCase());
+        // Optionally reload page or just update text
+      });
+    });
+  });
 
-        // Update page title
-        document.title = this.getTranslation('appTitle');
-    }
-
-    setupLanguageSelector() {
-        // Add click handlers for language selection
-        const languageDropdown = document.querySelector('.language-dropdown');
-        if (languageDropdown) {
-            languageDropdown.addEventListener('click', async (e) => {
-                if (e.target.tagName === 'DIV') {
-                    const lang = e.target.textContent;
-                    console.log('Language selected:', lang);
-                    await this.changeLanguage(lang);
-                }
-            });
-        } else {
-            console.warn('Language dropdown not found');
-        }
-    }
-}
-
-// Initialize language manager
-const languageManager = new LanguageManager(); 
+  // Expose for manual switching if needed
+  window.updateLang = updateLang;
+})(); 

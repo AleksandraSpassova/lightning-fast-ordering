@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1980">
-    <title>Login - Lightning Fast Ordering</title>
+    <title data-i18n="app_title">Login - Lightning Fast Ordering</title>
     <link rel="stylesheet" href="styles.css">
     <script src="js/languageManager.js"></script>
     <style>
@@ -60,13 +60,13 @@
     <div class="login-container">
         <div class="login-box">
             <div class="login-title">
-                <h1 data-i18n="login.title">Lightning Fast Ordering</h1>
-                <p data-i18n="login.subtitle">Please enter your email to continue</p>
+                <h1 data-i18n="app_title">Lightning Fast Ordering</h1>
+                <p data-i18n="login_prompt">Please enter your email to continue</p>
             </div>
             <form class="login-form" id="loginForm">
-                <input type="email" id="email" class="login-input" data-i18n-placeholder="login.emailPlaceholder" placeholder="Enter your email" required>
-                <div id="errorMessage" class="error-message" data-i18n="login.errorMessage">Please enter a valid email address</div>
-                <button type="submit" class="login-button" data-i18n="login.continue">Continue</button>
+                <input type="email" id="email" class="login-input" placeholder="Enter your email" required data-i18n-placeholder="login_email_placeholder">
+                <div id="errorMessage" class="error-message" data-i18n="login_error">Please enter a valid email address</div>
+                <button type="submit" class="login-button" data-i18n="login_button">Continue</button>
             </form>
         </div>
     </div>
@@ -78,7 +78,9 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
             if (emailRegex.test(email)) {
+                // Store the email in localStorage
                 localStorage.setItem('userEmail', email);
+                // Redirect to the main page
                 window.location.href = 'index.html';
             } else {
                 document.getElementById('errorMessage').style.display = 'block';

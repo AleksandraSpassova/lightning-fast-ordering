@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1980" />
-    <title>Lightning Fast Ordering</title>
+    <title data-i18n="app_title">Lightning Fast Ordering</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="js/languageManager.js"></script>
     <script>
       // Check if user is logged in
-      window.onload = function() {
-        const userEmail = localStorage.getItem('userEmail');
+      window.onload = function () {
+        const userEmail = localStorage.getItem("userEmail");
         if (!userEmail) {
-          window.location.href = 'login.html';
+          window.location.href = "login.html";
         }
-      }
+      };
     </script>
   </head>
   <body>
     <div class="nav-title-bar">
-      <h5 data-i18n="appTitle">Lightning Fast Ordering</h5>
+      <h5 data-i18n="app_title">Lightning Fast Ordering</h5>
     </div>
 
     <div class="main-navbar">
@@ -34,55 +34,72 @@
         <div class="language-selector">
           <img src="images/lang.svg" />
           <div class="language-dropdown">
-            <div class="language-option" data-lang="EN">EN</div>
-            <div class="language-option" data-lang="DE">DE</div>
-            <div class="language-option" data-lang="ES">ES</div>
-            <div class="language-option" data-lang="NL">NL</div>
+            <div>EN</div>
+            <div>DE</div>
+            <div>ES</div>
+            <div>NL</div>
           </div>
         </div>
 
         <div></div>
 
         <div>
-          <button class="logout-button" onclick="handleLogout()" data-i18n="nav.logout">LOG OUT →</button>
+          <button
+            class="logout-button"
+            onclick="handleLogout()"
+            data-i18n="logout"
+          >
+            LOG OUT →
+          </button>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="price-list" id="priceList">
-        <div class="tite-table" id="titletable"><h1 data-i18n="priceList.title">Price List</h1></div>
+        <div class="tite-table" id="titletable">
+          <h1 data-i18n="price_list">Price List</h1>
+        </div>
         <div class="search-filter-row">
           <div class="search-bar">
-            <input type="text" data-i18n-placeholder="priceList.searchPlaceholder" placeholder="Search product" id="search-input" />
+            <input
+              type="text"
+              placeholder="Search product"
+              id="search-input"
+              data-i18n-placeholder="search_product"
+            />
             <span class="search-icon"><img src="images/search.svg" /></span>
           </div>
           <div class="filter-dropdown">
-            <button class="filter-button">
-              <span data-i18n="priceList.stockAvailability">Stock Availability</span>
+            <button class="filter-button" data-i18n="stock_availability">
+              Stock Availability
               <span class="arrow">
-                <img src="images/dropdownfilter.svg" />
-              </span>
+                <img src="images/dropdownfilter.svg"
+              /></span>
             </button>
             <div class="dropdown-menu">
-              <div data-i18n="priceList.directlyAvailable">Directly Available</div>
+              <div data-i18n="directly_available">Directly Available</div>
             </div>
           </div>
           <div class="filter-dropdowntwo">
-            <button class="filter-buttontwo">
-              <span data-i18n="priceList.category">Category</span>
+            <button class="filter-buttontwo" data-i18n="category">
+              Category
               <span class="arrow">
-                <img src="images/dropdownfilter.svg" />
-              </span>
+                <img src="images/dropdownfilter.svg"
+              /></span>
             </button>
             <div class="dropdown-menutwo">
-              <div class="category-option" data-i18n="priceList.categories.meatSeafood">Meat & Seafood</div>
-              <div class="category-option" data-i18n="priceList.categories.dairyEggs">Dairy & Eggs</div>
-              <div class="category-option" data-i18n="priceList.categories.groceries">Groceries</div>
-              <div class="category-option" data-i18n="priceList.categories.confectionery">Confectionery</div>
-              <div class="category-option" data-i18n="priceList.categories.beverages">Beverages</div>
-              <div class="category-option" data-i18n="priceList.categories.beerWines">Beer & Wines</div>
-              <div class="category-option" data-i18n="priceList.categories.liquors">Liquors</div>
-              <div class="category-option" data-i18n="priceList.categories.nonFood">Non-Food</div>
+              <div class="category-option" data-i18n-category>
+                Meat & Seafood
+              </div>
+              <div class="category-option" data-i18n-category>Dairy & Eggs</div>
+              <div class="category-option" data-i18n-category>Groceries</div>
+              <div class="category-option" data-i18n-category>
+                Confectionery
+              </div>
+              <div class="category-option" data-i18n-category>Beverages</div>
+              <div class="category-option" data-i18n-category>Beer & Wines</div>
+              <div class="category-option" data-i18n-category>Liquors</div>
+              <div class="category-option" data-i18n-category>Non-Food</div>
             </div>
           </div>
         </div>
@@ -90,16 +107,16 @@
         <table id="products-table">
           <thead>
             <tr>
-              <th data-i18n="table.item">Item</th>
-              <th data-i18n="table.price">Price</th>
-              <th data-i18n="table.stock">Stock</th>
-              <th data-i18n="table.origin">Origin</th>
-              <th data-i18n="table.category">Category</th>
-              <th data-i18n="table.qty">Qty</th>
-              <th data-i18n="table.packaging">Packaging</th>
-              <th data-i18n="table.pricePerPackaging">Price/Packaging</th>
-              <th data-i18n="table.pallet">Pallet</th>
-              <th data-i18n="table.volumeWeight">Volume/Weight</th>
+              <th data-i18n="item">Item</th>
+              <th data-i18n="price">Price</th>
+              <th data-i18n="stock">Stock</th>
+              <th data-i18n="origin">Origin</th>
+              <th data-i18n="category">Category</th>
+              <th data-i18n="qty">Qty</th>
+              <th data-i18n="packaging">Packaging</th>
+              <th data-i18n="price_packaging">Price/Packaging</th>
+              <th data-i18n="pallet">Pallet</th>
+              <th data-i18n="volume_weight">Volume/Weight</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -107,35 +124,33 @@
       </div>
 
       <div class="order-summary hidden" id="orderSummary">
-        <h1 data-i18n="orderSummary.title">Order Details</h1>
+        <h1 data-i18n="order_details">Order Details</h1>
         <table>
           <thead>
             <tr>
-              <th class="left-align" data-i18n="table.item">Item</th>
-              <th class="center-align" data-i18n="table.price">Price</th>
-              <th class="center-align" data-i18n="table.qty">Qty</th>
-              <th class="center-align" data-i18n="table.price">Total</th>
-              <th class="center-align" data-i18n="table.volumeWeight">Volume/Weight</th>
+              <th class="left-align" data-i18n="item">Item</th>
+              <th class="center-align" data-i18n="price">Price</th>
+              <th class="center-align" data-i18n="qty">Qty</th>
+              <th class="center-align" data-i18n="total">Total</th>
+              <th class="center-align" data-i18n="volume_weight">
+                Volume<br />Weight
+              </th>
             </tr>
           </thead>
           <tbody id="orderItems"></tbody>
-          <tfoot>
-            <tr class="summary-row">
-              <td colspan="3">
-                <strong data-i18n="orderSummary.subtotal">Subtotal</strong>
-              </td>
-              <td id="subtotal">€0.00</td>
-              <td></td>
-            </tr>
-          </tfoot>
         </table>
+        <button id="orderButton" class="order-btn">
+          <span class="order-btn-label">ORDER</span>
+          <span class="order-btn-amount">€ <span id="orderButtonTotal">0.00</span></span>
+          <span class="order-btn-arrow">→</span>
+        </button>
       </div>
     </div>
     <script src="script.js"></script>
     <script>
       function handleLogout() {
-        localStorage.removeItem('userEmail');
-        window.location.href = 'login.html';
+        localStorage.removeItem("userEmail");
+        window.location.href = "login.html";
       }
     </script>
   </body>
