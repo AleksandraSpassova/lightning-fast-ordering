@@ -1,0 +1,44 @@
+{
+  "flags": [
+    {
+      "origin": "Germany",
+      "iso": "de"
+    },
+    {
+      "origin": "France",
+      "iso": "fr"
+    },
+    {
+      "origin": "Italy",
+      "iso": "it"
+    },
+    {
+      "origin": "Spain",
+      "iso": "es"
+    },
+    {
+      "origin": "United States",
+      "iso": "us"
+    },
+    {
+      "origin": "United Kingdom",
+      "iso": "gb"
+    },
+    {
+      "origin": "Canada",
+      "iso": "ca"
+    },
+    {
+      "origin": "Australia",
+      "iso": "au"
+    },
+    {
+      "origin": "Japan",
+      "iso": "jp"
+    },
+    {
+      "origin": "China",
+      "iso": "cn"
+    }
+  ]
+}

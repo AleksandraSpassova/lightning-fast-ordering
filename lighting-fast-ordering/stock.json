@@ -1,0 +1,17 @@
+{
+  "SKU001": {
+    "Qty Available": 100
+  },
+  "SKU002": {
+    "Qty Available": 50
+  },
+  "SKU003": {
+    "Qty Available": 0
+  },
+  "SKU004": {
+    "Qty Available": 200
+  },
+  "SKU005": {
+    "Qty Available": 75
+  }
+}

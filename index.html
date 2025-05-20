@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1980" />
+    <title>Lightning Fast Ordering</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="nav-title-bar">
+      <h5>Lightning Fast Ordering</h5>
+    </div>
+
+    <div class="main-navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <img src="images/navlogo.svg" height="44px" width="280px" />
+        </div>
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <div class="language-selector">
+          <img src="images/lang.svg" />
+          <div class="language-dropdown">
+            <div>EN</div>
+            <div>DE</div>
+            <div>ES</div>
+            <div>NL</div>
+          </div>
+        </div>
+
+        <div></div>
+
+        <div>
+          <button class="logout-button">LOG OUT →</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="price-list" id="priceList">
+        <div class="tite-table" id="titletable"><h1>Price List</h1></div>
+        <div class="search-filter-row">
+          <div class="search-bar">
+            <input type="text" placeholder="Search product" id="search-input" />
+            <span class="search-icon"><img src="images/search.svg" /></span>
+          </div>
+          <div class="filter-dropdown">
+            <button class="filter-button">
+              Stock Availability
+              <span class="arrow">
+                <img src="images/dropdownfilter.svg"
+              /></span>
+            </button>
+            <div class="dropdown-menu">
+              <div>Directly Available</div>
+            </div>
+          </div>
+          <div class="filter-dropdowntwo">
+            <button class="filter-buttontwo">
+              Category
+              <span class="arrow">
+                <img src="images/dropdownfilter.svg"
+              /></span>
+            </button>
+            <div class="dropdown-menutwo">
+              <div class="category-option">Meat & Seafood</div>
+              <div class="category-option">Dairy & Eggs</div>
+              <div class="category-option">Groceries</div>
+              <div class="category-option">Confectionery</div>
+              <div class="category-option">Beverages</div>
+              <div class="category-option">Beer & Wines</div>
+              <div class="category-option">Liquors</div>
+              <div class="category-option">Non-Food</div>
+            </div>
+          </div>
+        </div>
+
+        <table id="products-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Origin</th>
+              <th>Category</th>
+              <th>Qty</th>
+              <th>Packaging</th>
+              <th>
+                Price/ <br />
+                Packaging
+              </th>
+              <th>Pallet</th>
+              <th>
+                Volume <br />
+                Weight
+              </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="order-summary hidden" id="orderSummary">
+        <h1>Order Details</h1>
+        <table>
+          <thead>
+            <tr>
+              <th class="left-align">Item</th>
+              <th class="center-align">Price</th>
+              <th class="center-align">Qty</th>
+              <th class="center-align">Total</th>
+              <th class="center-align">Volume<br />Weight</th>
+            </tr>
+          </thead>
+          <tbody id="orderItems"></tbody>
+          <tfoot>
+            <tr class="summary-row">
+              <td colspan="3">
+                <strong>Subtotal</strong>
+              </td>
+              <td id="subtotal">€0.00</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+
+  <script>
+    document
+      .querySelector(".filter-button")
+      .addEventListener("click", function () {
+        document.querySelector(".dropdown-menu").classList.toggle("show");
+      });
+
+    window.addEventListener("click", function (e) {
+      if (!document.querySelector(".filter-dropdown").contains(e.target)) {
+        document.querySelector(".dropdown-menu").classList.remove("show");
+      }
+    });
+  </script>
+
+  <script>
+    document
+      .querySelector(".filter-buttontwo")
+      .addEventListener("click", function () {
+        document.querySelector(".dropdown-menutwo").classList.toggle("show");
+      });
+
+    window.addEventListener("click", function (e) {
+      if (!document.querySelector(".filter-dropdowntwo").contains(e.target)) {
+        document.querySelector(".dropdown-menutwo").classList.remove("show");
+      }
+    });
+  </script>
+</html>

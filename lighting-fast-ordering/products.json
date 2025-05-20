@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "SKU": "P001",
+      "Name": "Product 1",
+      "Price unit price": "10.00",
+      "Order unit price": "9.00",
+      "Discount %": "5",
+      "Currency (Code)": "EUR",
+      "Origin of product": "Germany",
+      "Product Category": "Electronics",
+      "Subcategory": "Mobile Phones",
+      "Colli": "1",
+      "M3": "0.001",
+      "Weight_KG": "0.2",
+      "Colli per pallet": "20",
+      "order unit": "pcs",
+      "Colli discount": "10"
+    },
+    {
+      "SKU": "P002",
+      "Name": "Product 2",
+      "Price unit price": "20.00",
+      "Order unit price": "18.00",
+      "Discount %": "10",
+      "Currency (Code)": "EUR",
+      "Origin of product": "France",
+      "Product Category": "Home Appliances",
+      "Subcategory": "Kitchen",
+      "Colli": "1",
+      "M3": "0.002",
+      "Weight_KG": "1.0",
+      "Colli per pallet": "10",
+      "order unit": "pcs",
+      "Colli discount": "5"
+    },
+    {
+      "SKU": "P003",
+      "Name": "Product 3",
+      "Price unit price": "15.00",
+      "Order unit price": "14.00",
+      "Discount %": "0",
+      "Currency (Code)": "EUR",
+      "Origin of product": "Italy",
+      "Product Category": "Furniture",
+      "Subcategory": "Chairs",
+      "Colli": "1",
+      "M3": "0.003",
+      "Weight_KG": "3.0",
+      "Colli per pallet": "5",
+      "order unit": "pcs",
+      "Colli discount": "0"
+    }
+  ]
+}
